@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="LeitorBiometria">
+    <property environment="env"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.8"/>
+    <property name="source" value="1.8"/>
+    <path id="veridisbiometric.userclasspath"/>
+    <path id="org.eclipse.jdt.USER_LIBRARY/org.xerial:sqlite-jdbc:3.5.9.userclasspath"/>
+    <path id="LeitorBiometria.classpath">
+        <pathelement location="out/production/BiometriaApplet"/>
+        <path refid="veridisbiometric.userclasspath"/>
+        <path refid="org.eclipse.jdt.USER_LIBRARY/org.xerial:sqlite-jdbc:3.5.9.userclasspath"/>
+        <pathelement location="lib/veridisbiometric.jar"/>
+        <pathelement location="lib/jna.jar"/>
+        <pathelement location="lib/sqlite-jdbc-3.8.11.1.jar"/>
+        <pathelement location="../../../../../InterSystems/Cache/lib/cachedb.jar"/>
+        <pathelement location="../../../../../InterSystems/Cache/lib/cachejdbc.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="out/production/BiometriaApplet"/>
+        <copy includeemptydirs="false" todir="out/production/BiometriaApplet">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="out/production/BiometriaApplet"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="out/production/BiometriaApplet" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="LeitorBiometria.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="AnnotationProvider">
+        <java classname="com.jalapeno.tools.objects.AnnotationProvider" failonerror="true" fork="yes">
+            <classpath refid="LeitorBiometria.classpath"/>
+        </java>
+    </target>
+    <target name="BiometriaApplet">
+        <java classname="sun.applet.AppletViewer" dir="." failonerror="true" fork="yes">
+            <arg line="BiometriaApplet.html"/>
+            <classpath refid="LeitorBiometria.classpath"/>
+        </java>
+    </target>
+    <target name="Cadastro">
+        <java classname="br.com.zanthus.Cadastro" failonerror="true" fork="yes">
+            <classpath refid="LeitorBiometria.classpath"/>
+        </java>
+    </target>
+    <target name="ConectaCache">
+        <java classname="cache.ConectaCache" failonerror="true" fork="yes">
+            <classpath refid="LeitorBiometria.classpath"/>
+        </java>
+    </target>
+    <target name="Main">
+        <java classname="br.com.zanthus.Main" failonerror="true" fork="yes">
+            <classpath refid="LeitorBiometria.classpath"/>
+        </java>
+    </target>
+    <target name="Principal">
+        <java classname="br.com.zanthus.Principal" failonerror="true" fork="yes">
+            <classpath refid="LeitorBiometria.classpath"/>
+        </java>
+    </target>
+    <target name="Verificacao">
+        <java classname="br.com.zanthus.Verificacao" failonerror="true" fork="yes">
+            <classpath refid="LeitorBiometria.classpath"/>
+        </java>
+    </target>
+</project>
