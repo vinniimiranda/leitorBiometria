@@ -1,7 +1,8 @@
-# Biometria Java
+# Software para leitura de Biometria através de leitor FS80H.
 
 > Atenção
-  - Apesar de ser um leitor Futronic, é necessário que o leitor seja fabricado pela CIS, pois o SDK usado foi desenvolvido para funcionar no Firmweare desenvolvido pela mesma.
-  - O SDK CIS é gratuito
-  - O SDK da Futronic é pago e custa US$ 1000
+  - Nesse projeto estão todas dependencias para utilização do leitor.
+  - O SDK já vem na pasta.
+  - O Banco de Dados utilizado é o Caché.
+  - O uso desse software é livre, todas informações privadas devem ser protegidas.
 

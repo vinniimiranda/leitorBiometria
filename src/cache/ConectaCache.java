@@ -13,9 +13,9 @@ import java.sql.Statement;
 public class ConectaCache{
 	public static void main(String[] args){
         
-        String url="jdbc:Cache://20.0.0.7:1972/jiujitsu";
- 		String user = "flavio.miranda";
- 		String password = "aco0910";
+        String url="***";
+ 		String user = "****";
+ 		String password = "****";
  		String stQuery = "Select top 10 nome from cadastro.aluno order by id desc";
 
  		try {
